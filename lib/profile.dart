@@ -11,7 +11,7 @@ class Profile extends StatelessWidget {
         backgroundColor: themeCol,
       ),
       body: Center(
-        child: Text("Ma page de profil"),
+        child: Text("Ma page des profil"),
       ),
     );
   }
