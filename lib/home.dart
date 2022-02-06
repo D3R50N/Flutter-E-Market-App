@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'navBar.dart';
 import 'profile.dart';
+import 'public.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class HomeState extends State<Home> {
 
   void _onItemTapped(index) {
     setState(() {
-      _currentIdx = index;
+      _pageController.jumpToPage(index);
     });
   }
 
@@ -31,17 +32,9 @@ class HomeState extends State<Home> {
   final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
   static const double menuItemSpacing = 10;
 
+  PageController _pageController = PageController(initialPage: 0);
   List<Widget> malist = [
-    Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        child: Icon(Icons.shopping_cart_outlined),
-        backgroundColor: themeCol, // <-- Opens drawer
-      ),
-      body: Center(
-        child: Text("Public"),
-      ),
-    ),
+    PublicScreen(),
     Center(
       child: Text('Stars'),
     ),
@@ -56,8 +49,13 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TopNavBar(),
-      body: Scaffold(
-        body: malist[_currentIdx],
+      body: PageView(
+        controller: _pageController,
+        children: malist,
+        // scrollDirection: Axis.vertical,
+        onPageChanged: (i) => {
+          setState(() => {_currentIdx = i})
+        },
       ),
       bottomNavigationBar: BottomNavBar(_onItemTapped, _currentIdx),
       key: _key,

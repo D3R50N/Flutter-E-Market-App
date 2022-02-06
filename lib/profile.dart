@@ -10,9 +10,7 @@ class Profile extends StatelessWidget {
         centerTitle: false,
         backgroundColor: themeCol,
       ),
-      body: Center(
-        child: Text("Ma page profil"),
-      ),
+      body: Center(child: Text('pro')),
     );
   }
 }

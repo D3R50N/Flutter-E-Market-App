@@ -77,6 +77,8 @@ class BottomNavBar extends StatelessWidget {
       color: themeCol,
       backgroundColor: Colors.transparent,
       buttonBackgroundColor: themeCol,
+      animationDuration: Duration(milliseconds: 400),
+      index: currIdx,
       onTap: changeItem,
       height: 60,
       items: <Widget>[
