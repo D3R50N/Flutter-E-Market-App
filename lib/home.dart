@@ -49,6 +49,7 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TopNavBar(),
+      // extendBody: true,
       body: PageView(
         controller: _pageController,
         children: malist,
