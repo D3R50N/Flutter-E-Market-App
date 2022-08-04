@@ -17,7 +17,6 @@ class _PublicScreenState extends State<PublicScreen> {
         child: Icon(Icons.shopping_cart_outlined),
         backgroundColor: themeCol, // <-- Opens drawer
       ),
-      extendBody: true,
       body: Container(
         // color: Color.fromRGBO(30, 30, 30, 1),
         child: SingleChildScrollView(
